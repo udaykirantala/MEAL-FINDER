@@ -9,118 +9,6 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-    /* Hedaing starting */
-    html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
-
-    header {
-    background-color: orangered;
-    height: 7vh;
-    padding: 13px 0px 0px 0px;
-    }
-    .header_home_heading{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 10px;
-        font-size: 30px;
-        color: white;
-    }
-    .header_home_heading a{
-        text-decoration: none;
-        color: white;
-    }
-    .header_home_heading span{
-        padding-left: 10px;
-    }
-    .header_heading_slider{
-        background-color: white;
-        display: none;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        position: fixed;
-        top: 0%;
-        right: 0%;
-        width: 250px;
-        z-index: 999;
-        row-gap: 18px;
-    }
-    .header_heading_slider i{
-        padding-top: 20px;
-        color: red;
-        font-size: 30px;
-    }
-    .header_heading_slider a{
-        text-decoration: none;
-        color: rgb(16, 15, 15);
-        font-size: 20px;
-    }
-    /* heading ending */
-    /* Main Page Starting */
-    .main_heading_content_container{
-        background-color: rgba(0, 0, 0, 0.580);
-        width: 100%;
-        height: 100%;
-    }
-    .main_heading_container{
-        background-image: url(../media/pexels-enginakyurt-1435895.jpg);
-        width: 100%;
-        height:550px;
-        object-fit:cover;
-        background-repeat: no-repeat;
-        background-size: cover; 
-        position: relative;
-    }
-    .main_heading_searchbar_content_container{
-        position: absolute;
-        top: 30%;
-        left: 33%;
-    }
-    .main_heading_text_content_container{
-        position: absolute;
-        top: 40%;
-        left: 23%;
-    }
-    .main_heading_content_container input{
-        width: 400px;
-        height: 55px;
-        border: none;
-        border-radius:90px;
-        padding-left: 50px;
-        font-size: 25px;
-    }
-    .main_heading_content_container button{
-        background-color: orangered;
-        border: 0.5px solid white;
-        border-radius: 90px;
-        font-size: 25px;
-        height: 50px;
-        width: 50px;
-        color: white;
-    }
-    .main_heading_searchbar_content_container{
-        display: flex;
-        justify-content:baseline;
-        align-items: center;
-        gap: 10px;
-    }
-    .main_heading_text_content_container h2{
-        font-size: 60px;
-        font-family: "Bebas Neue", sans-serif;
-        margin-bottom: 0%;
-        color: white;
-    }
-    .main_heading_text_content_container p{
-        color: white;
-        font-size: 25px;
-        padding-left: 210px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        word-spacing: 15px;
-    }
     </style>
 </head>
 <body>
@@ -134,20 +22,22 @@
     <!-- Slider -->
     <div class="header_heading_slider">
         <span onclick=hiddenSlider()><i class="fa-regular fa-circle-xmark"></i></span>
-        <a href="#">Beef</a>
-        <a href="#">Chicken</a>
-        <a href="#">Dessert</a>
-        <a href="#">Lamb</a>
-        <a href="#">Miscellaneous</a>
-        <a href="#">Pasta</a>
-        <a href="#">Pork</a>
-        <a href="#">Seafood</a>
-        <a href="#">Side</a>
-        <a href="#">Starter</a>
-        <a href="#">Vegan</a>
-        <a href="#">Vegetarian</a>
-        <a href="#">Breakfast</a>
-        <a href="#">Goat</a>
+        <ul>
+            <li>Beef</li>
+            <li>Chicken</li>
+            <li>Dessert</li>
+            <li>Lamb</li>
+            <li>Miscellaneous</li>
+            <li>Pasta</li>
+            <li>Pork</li>
+            <li>Seafood</li>
+            <li>Side</li>
+            <li>Starter</li>
+            <li>Vegan</li>
+            <li>Vegetarian</li>
+            <li>Breakfast</li>
+            <li>Goat</li>
+        </ul>
     </div>
 </header>
 <!-- Header ending -->
@@ -164,6 +54,13 @@
             <h2>What are your favorite cuisines?</h2>
             <p>PERSONALIZE YOUR EXPERIENCE</p>
         </div>
+    </div>
+</section>
+
+<!-- Categories Container Starting -->
+<section class="categoriesContainer">
+    <h3>CATEGORIES</h3>
+    <div id="categoriesContainerContent">
     </div>
 </section>
 
