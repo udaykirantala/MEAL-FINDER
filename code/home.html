@@ -39,17 +39,25 @@
     .header_heading_slider{
         background-color: white;
         display: none;
-        text-align: start;
-        justify-content: space-evenly;
+        align-items: flex-start;
+        justify-content: flex-start;
         flex-direction: column;
         position: fixed;
         top: 0%;
         right: 0%;
         width: 250px;
         z-index: 999;
+        row-gap: 18px;
     }
-    .fa-xmark{
+    .header_heading_slider i{
         padding-top: 20px;
+        color: red;
+        font-size: 30px;
+    }
+    .header_heading_slider a{
+        text-decoration: none;
+        color: rgb(16, 15, 15);
+        font-size: 20px;
     }
     /* heading ending */
     /* Main Page Starting */
@@ -125,7 +133,7 @@
     </div>
     <!-- Slider -->
     <div class="header_heading_slider">
-        <span onclick=hiddenSlider()><i class="fa-solid fa-xmark"></i></span>
+        <span onclick=hiddenSlider()><i class="fa-regular fa-circle-xmark"></i></span>
         <a href="#">Beef</a>
         <a href="#">Chicken</a>
         <a href="#">Dessert</a>
