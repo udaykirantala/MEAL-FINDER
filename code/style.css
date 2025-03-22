@@ -124,18 +124,18 @@ html, body {
     }
     /* Main Page Heading Ending */
     /* Categories Page Starting */
-    .categoriesContainer{
+    #categoriesContainer{
         padding: 0px 25px 0px 25px;
         position: relative;
         margin-bottom: 50px;
     }
-    .categoriesContainer h3{
+    #categoriesContainer h3{
         font-size: 30px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         letter-spacing: 15px;
         font-weight:700;
     }
-    .categoriesContainer h3::after{
+    #categoriesContainer h3::after{
         content: "";
         width: 150px;
         height: 5px;
