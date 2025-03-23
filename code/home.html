@@ -9,6 +9,78 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        /* Beef Container Starting*/
+        #beefandmealscategories{
+            display: none;
+        }
+        #beefandmealscategories h3,#mealscategoriescards{
+            padding: 20px;
+        }
+        #beefcategoriescontainer{
+            border: 1px solid red;
+            margin: 20px 20px 40px 20px;
+            padding: 10px;
+        }
+        .descriptionItemName{
+            color: red;
+        }
+        #beefcategoriescontainer{
+            font-size: 25px;
+        }
+        .descriptionItemName{
+            font-size: 30px;
+        }
+        /* Meals Container */
+        #beefandmealscategories{
+            position: relative;
+        }
+        #beefandmealscategories h3{
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 15px;
+            font-weight:700;
+        }
+        #beefandmealscategories h3::after{
+            content: "";
+            width: 120px;
+            height: 5px;
+            background-color: orangered;
+            position: absolute;
+            left:21px;
+            top:300px;
+        }
+        #mealscategoriescards {
+            display: flex;
+            justify-content: baseline;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .mealscategories {
+            width: 18.6%;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 1px 2.5px 5px rgba(0, 0, 0, 0.568);
+        }
+
+        .mealscategories img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mealscategories p {
+            padding: 10px;
+            font-size: 16px;
+        }
+        /* Beef Container Ending */
     </style>
 </head>
 <body>
@@ -16,7 +88,7 @@
 <header>
     <!-- Main Heading Header -->
     <div class="header_home_heading">
-        <a href="#"><i class="fa-solid fa-house"></i><span class="header_heading">MEAL FINDER</span></a>
+        <div id="homeiconshow" onclick=hiddencategories()><i class="fa-solid fa-house"></i><span class="header_heading">MEAL FINDER</span></div>
         <span onclick=showSlider()><i class="fa-solid fa-bars"></i></span>
     </div>
     <!-- Slider -->
@@ -50,9 +122,14 @@
     </div>
 </section>
 <!-- Beef Description Container -->
-<section>
+<br>
+<section id="beefandmealscategories">
     <div id="beefcategoriescontainer"></div>
+    <h3>MEALS</h3>
+    <div id="mealscategoriescards">
+    </div>
 </section>
+
 
     <script src="./app.js"></script>
 </body>
