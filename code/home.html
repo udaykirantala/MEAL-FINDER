@@ -9,14 +9,14 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* Beef Container Starting*/
-        #beefandmealscategories{
+        /* item Container Starting*/
+        #itemandmealscategories{
             display: none;
         }
-        #beefandmealscategories h3,#mealscategoriescards{
+        #itemandmealscategories h3,#mealscategoriescards{
             padding: 20px;
         }
-        #beefcategoriescontainer{
+        #itemcategoriescontainer{
             border: 1px solid red;
             margin: 20px 20px 40px 20px;
             padding: 10px;
@@ -24,30 +24,30 @@
         .descriptionItemName{
             color: red;
         }
-        #beefcategoriescontainer{
+        #itemcategoriescontainer{
             font-size: 25px;
         }
         .descriptionItemName{
             font-size: 30px;
         }
         /* Meals Container */
-        #beefandmealscategories{
+        #melasheading{
             position: relative;
         }
-        #beefandmealscategories h3{
+        #melasheading h3{
             font-size: 30px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             letter-spacing: 15px;
             font-weight:700;
         }
-        #beefandmealscategories h3::after{
+        #melasheading h3::after{
             content: "";
             width: 120px;
             height: 5px;
             background-color: orangered;
             position: absolute;
             left:21px;
-            top:300px;
+            top:70px;
         }
         #mealscategoriescards {
             display: flex;
@@ -80,7 +80,7 @@
             padding: 10px;
             font-size: 16px;
         }
-        /* Beef Container Ending */
+        /* item Container Ending */
     </style>
 </head>
 <body>
@@ -101,7 +101,7 @@
 <!-- Header ending -->
 
 <!-- Maing heading page starting -->
-<section class="main_heading_container">
+<section class="main_heading_container" onclick=sliderhiddenbody()>
     <!-- Search Bar -->
     <div class="main_heading_content_container">
         <div class="main_heading_searchbar_content_container">
@@ -116,16 +116,16 @@
 </section>
 
 <!-- Categories Container Starting -->
-<section id="categoriesContainer">
+<section id="categoriesContainer" onclick=sliderhiddenbody()>
     <h3>CATEGORIES</h3>
     <div id="categoriesContainerContent">
     </div>
 </section>
-<!-- Beef Description Container -->
+<!-- item Description Container -->
 <br>
-<section id="beefandmealscategories">
-    <div id="beefcategoriescontainer"></div>
-    <h3>MEALS</h3>
+<section id="itemandmealscategories" onclick=sliderhiddenbody()>
+    <div id="itemcategoriescontainer"></div>
+    <div id="melasheading"><h3>MEALS</h3></div>
     <div id="mealscategoriescards">
     </div>
 </section>
