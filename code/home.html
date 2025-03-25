@@ -81,9 +81,76 @@
             font-size: 16px;
         }
         /* item Container Ending */
+        /* Meals Of Searech Items Container Starting */
         #melasSection{
             display: none;
+            margin:0px 20px 0px 20px;
+            position: relative;
         }
+        #melasSearchDivistion{
+            display: flex;
+            justify-content: baseline;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .melas_card{
+            width: 18.5%;
+            height: 340px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 5px;
+            box-shadow: 1px 2.5px 5px rgba(0, 0, 0, 0.568);
+        }
+        .melas_card img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .mealsarea,.mealsname{
+            margin:5px 0px 0px 10px;
+            font-size: 25px;
+            text-align: start;
+            font-weight: 600;
+        }
+        .mealsarea{
+            color:rgba(128, 128, 128, 0.692);
+        }
+        .melas_card{
+            position: relative;
+        }
+        .mealscategoryname{
+            font-size: 16px;
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            background-color: white;
+            padding: 10px 20px 10px 20px;
+            margin: 5px;
+            border-radius: 90px;
+            color: orangered;
+        }
+        .mealsHeadingOfSearchItems{
+            font-size: 35px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 15px;
+            font-weight:700;
+            margin-bottom: 50px;
+        }
+        .mealsHeadingOfSearchItems::after{
+            content: "";
+            width: 120px;
+            height: 5px;
+            background-color: orangered;
+            position: absolute;
+            top:50px;
+            left: 0%;
+        }
+        /* Meals Of Searech Items Container Ending */
     </style>
 </head>
 <body>
@@ -101,7 +168,7 @@
         </ul>
     </div>
 </header>
-<!-- Header ending -->
+<!-- Header ending   -->
 
 <!-- Maing heading page starting -->
 <section class="main_heading_container" onclick=sliderhiddenbody()>
@@ -119,7 +186,7 @@
 </section>
 
 <section id="melasSection">
-    <p id="melasSearchheading">Meals</p>
+    <p class="mealsHeadingOfSearchItems">MEALS</p>
     <div id="melasSearchDivistion"></div>
 </section>
 

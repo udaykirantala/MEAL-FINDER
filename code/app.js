@@ -142,9 +142,9 @@ async function searchMelas() {
                 
                 mealCard.innerHTML = `
                     <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-                    <p>${meal.strMeal}</p>
-                    <p>${meal.strArea}</p>
-                    <p>${meal.strCategory}</p>
+                    <p class="mealsarea">${meal.strArea}</p>
+                    <p class="mealsname">${meal.strMeal}</p>
+                    <p class="mealscategoryname">${meal.strCategory}</p>
                 `;
                 melasSearchDivistion.appendChild(mealCard);
             });
@@ -162,4 +162,6 @@ function hiddencategories(){
     categoriesContainer.style.display='block'
     const beefcontainer=document.getElementById('itemandmealscategories');
     beefcontainer.style.display='none'
+    const melasSection= document.getElementById('melasSection');
+    melasSection.style.display='none'
 }
