@@ -151,6 +151,83 @@
             left: 0%;
         }
         /* Meals Of Searech Items Container Ending */
+        #containerOfRecipes{
+            background-color: rgb(245, 245, 245);
+            margin: 0px 20px 0px 20px;
+        }
+        .recipesalldetailscontainer{
+            background-color: white ;
+            padding: 25px;
+        }
+        .navativebarofrecipes{
+            background-color: orangered;
+            height: 50px;
+            color: white;
+            font-size: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 20px;
+        }
+        .recipesMealdetailas{
+            font-size: 22px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 10px;
+            font-weight:600;
+            position: relative; 
+        }
+        .recipesMealdetailas::after{
+            content: "";
+            width: 130px;
+            height: 5px;
+            background-color: orangered;
+            position: absolute;
+            top:50px;
+            left: 0%;
+        }
+        .recipesImgandingredientsContainer{
+            display: flex;
+            justify-content: baseline;
+            flex-wrap:wrap;
+            align-items: start;
+            gap: 30px;
+        }
+        .recipesImgandingredientsContainer img{
+            width:500px;
+        }
+        .recipesname{
+            font-size: 45px;
+            color: orangered;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            margin: 0%;
+        }
+        .recipesdetailscontainer{
+            padding: 0%;
+        }
+        .recipesdetailscontainer hr{
+            height: 2px;
+            background-color: orangered;
+            border: none;
+        }
+        .darkNames{
+            font-weight: bold;
+        }
+        .categorynameofrecipes{
+            font-size:25px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sourceofrecipes,.tagnameofrecipes{
+            font-size: 25px;
+        }
+        .colouredtext{
+            border: 1px solid orangered;
+            padding: 5px;
+            color: orangered;
+            margin-left: 10px;
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body>
@@ -189,6 +266,9 @@
     <p class="mealsHeadingOfSearchItems">MEALS</p>
     <div id="melasSearchDivistion"></div>
 </section>
+<!-- Recipes Container Starting -->
+<section id="containerOfRecipes"></section>
+<!-- Recipes Container Ending -->
 
 <!-- Categories Container Starting -->
 <section id="categoriesContainer" onclick=sliderhiddenbody()>
@@ -204,6 +284,7 @@
     <div id="mealscategoriescards">
     </div>
 </section>
+
     <script src="./app.js"></script>
 </body>
 </html>

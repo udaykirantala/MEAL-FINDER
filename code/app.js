@@ -102,7 +102,7 @@ const fetchCategoryMeals = async (categoryName) => {
 
         const mealscategoriescards = document.getElementById('mealscategoriescards');
         mealscategoriescards.innerHTML = data.meals.map((meal) => `
-            <div class="mealscategories">
+            <div class="mealscategories" onclick="showracipesdeatils('${meal.idMeal}')">
                 <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
                 <p>${meal.strMeal}</p>
             </div>
@@ -114,6 +114,8 @@ const fetchCategoryMeals = async (categoryName) => {
 // Categories Data Ending
 // Search Meals Starting
 async function searchMelas() {
+    const itemandmealscategories=document.getElementById('itemandmealscategories')
+    itemandmealscategories.style.display='none'
     const melasSection=document.getElementById('melasSection');
     const showContainer = document.getElementById("melasSection");
     showContainer.style.display = 'block';
@@ -155,6 +157,81 @@ async function searchMelas() {
         console.error("Error Fetching Meals:", error);
     }
 }
+// Search Meals Starting
+function showracipesdeatils(recipename){
+
+    recipesdetails(recipename)
+}
+
+const recipesdetails = async (recipename) => {
+    const melasSection = document.getElementById('melasSection');
+    melasSection.style.display = 'none';
+    const itemandmealscategories = document.getElementById('itemandmealscategories');
+    itemandmealscategories.style.display = 'none';
+    const categoriesContainer = document.getElementById('categoriesContainer');
+    categoriesContainer.style.display = 'block';
+    
+    try {
+        const recipeApi = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipename}`);
+        const data = await recipeApi.json();
+        
+        const containerOfRecipes = document.getElementById('containerOfRecipes');
+        containerOfRecipes.innerHTML = data.meals.map((meal) => {
+            
+            let ingredients = '';
+            for (let i = 1; i <= 20; i++) {
+                const ingredient = meal[`strIngredient${i}`];
+
+                if (ingredient && ingredient.trim() !== "") {
+                    ingredients += `<li><span class="Ingredientsnumbers">${i}</span> ${ingredient}</li>`;
+                }
+            }
+
+            let measures ='';
+            for (let i = 1; i <= 20; i++) {
+                const measure = meal[`strMeasure${i}`]
+
+                if (measure && measure.trim() !== ""){
+                    measures += `<li><span class="measureicon"><i class="fa-solid fa-spoon"></i></span> ${measure}</li>`
+                }
+            }
+
+            let instructions = meal.strInstructions.split(". ").map(step => step ? `<li><i class="fa-regular fa-square-check" style="color: #ff7300;"></i>${step}.</li>` : '').join('');
+
+            return `
+            <div class="navativebarofrecipes"><span><i class="fa-solid fa-house"></i></span> >> <span>${meal.strMeal}</span></div>
+            <div class="recipesMealdetailas"><h2>MEAL DETAILS</h2></div>
+            <div class="recipesalldetailscontainer">
+                <div class="recipesImgandingredientsContainer">
+                    <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+                    <div class="recipesdetailscontainer">
+                        <h2 class="recipesname">${meal.strMeal}</h2><hr>
+                        <p class="categorynameofrecipes"><span class="darkNames">CATEGORY:</span> ${meal.strCategory.toUpperCase()}</p>
+                        <p class="sourceofrecipes"><span class="darkNames">Source:</span> <a href="${meal.strYoutube ? meal.strYoutube : 'N/A'}" target="_blank">${meal.strYoutube ? meal.strYoutube : 'N/A'}</a></p>
+                        <p class="tagnameofrecipes"><span class="darkNames">Tags:</span><span class="colouredtext">${meal.strTags ? meal.strTags : 'N/A'}</span></p>
+                        <div>
+                            <p>Ingredients</p>
+                            <ul>${ingredients}</ul>
+                        </div>
+                    </div>
+                </div>
+                <p>Measure</p>
+                <div><ul>${measures}</ul></div>
+                <div>
+                    <p>Instructions</p>
+                    <ul>${instructions}</ul>
+                </div>
+            </div>
+            `;
+        }).join("");
+        
+    } catch (error) {
+        console.error("Error fetching meals:", error);
+    }
+};
+
+
+
 
 function hiddencategories(){
     hiddenSlider()
@@ -164,4 +241,6 @@ function hiddencategories(){
     beefcontainer.style.display='none'
     const melasSection= document.getElementById('melasSection');
     melasSection.style.display='none'
+    const containerOfRecipes=document.getElementById('containerOfRecipes');
+    containerOfRecipes.style.display='none'
 }
