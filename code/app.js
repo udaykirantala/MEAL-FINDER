@@ -226,7 +226,7 @@ const recipesdetails = async (recipename) => {
             let instructions = meal.strInstructions.split(". ").map(step => step ? `<li><i class="fa-regular fa-square-check" style="color: #ff7300;"></i>${step}.</li>` : '').join('');
 
             return `
-            <div class="navativebarofrecipes"><span><i class="fa-solid fa-house"></i></span> >> <span>${meal.strMeal}</span></div>
+            <div class="navativebarofrecipes"><span onclick=hiddencategories()><i class="fa-solid fa-house"></i></span> >> <span>${meal.strMeal}</span></div>
             <div class="recipesMealdetailas"><h2>MEAL DETAILS</h2></div>
             <div class="recipesalldetailscontainer">
                 <div class="recipesImgandingredientsContainer">
