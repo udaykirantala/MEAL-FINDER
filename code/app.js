@@ -36,7 +36,7 @@ const fetchdata = async ()=>{
         const categoriesContainerContent = document.getElementById('categoriesContainerContent');
         categoriesContainerContent.innerHTML=data.categories.map((item)=>{
             return`
-            <div class="categoriesCards">
+            <div class="categoriesCards" onclick="showCategorycards('${item.strCategory}')">
             <img src="${item.strCategoryThumb}" alt="${item.strCategory}">
             <p>${item.strCategory.toUpperCase()}</p>
             </div>
@@ -68,11 +68,27 @@ function showCategory(categoryName) {
 
     const melasSection=document.getElementById('melasSection');
     melasSection.style.display='none'
+    
+    const containerOfRecipes=document.getElementById('containerOfRecipes');
+    containerOfRecipes.style.display='none'
 
     fetchCategoryDescription(categoryName);
     fetchCategoryMeals(categoryName);
 }
 
+function showCategorycards(categoryName){
+    const categoriesContainer = document.getElementById('categoriesContainer');
+    categoriesContainer.style.display = 'none';
+
+    const itemandmealscategorie = document.getElementById('itemandmealscategories');
+    itemandmealscategorie.style.display = 'block';
+
+    const melasSection=document.getElementById('melasSection');
+    melasSection.style.display='none'
+
+    fetchCategoryDescription(categoryName);
+    fetchCategoryMeals(categoryName);
+}
 // Function to fetch category description
 const fetchCategoryDescription = async (categoryName) => {
     try {
@@ -143,15 +159,19 @@ async function searchMelas() {
                 mealCard.classList.add("melas_card");
                 
                 mealCard.innerHTML = `
+                <div class="trycontainer" onclick="trythe('${meal.idMeal}')" >
                     <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
                     <p class="mealsarea">${meal.strArea}</p>
                     <p class="mealsname">${meal.strMeal}</p>
                     <p class="mealscategoryname">${meal.strCategory}</p>
+                </div>
                 `;
                 melasSearchDivistion.appendChild(mealCard);
             });
         } else {
-            melasSearchDivistion.innerHTML = "<p>No Meals Found</p>";
+            const teyhidden=document.getElementById('teyhidden');
+            teyhidden.style.display='none'
+            melasSearchDivistion.innerHTML = "<p class='nofoodfoundtext'>No any food found</p>";
         }
     } catch (error) {
         console.error("Error Fetching Meals:", error);
@@ -163,19 +183,26 @@ function showracipesdeatils(recipename){
     recipesdetails(recipename)
 }
 
+function trythe(recipename){
+    recipesdetails(recipename)
+}
+
 const recipesdetails = async (recipename) => {
     const melasSection = document.getElementById('melasSection');
     melasSection.style.display = 'none';
+
     const itemandmealscategories = document.getElementById('itemandmealscategories');
     itemandmealscategories.style.display = 'none';
+
     const categoriesContainer = document.getElementById('categoriesContainer');
     categoriesContainer.style.display = 'block';
     
+    const containerOfRecipes=document.getElementById('containerOfRecipes');
+    containerOfRecipes.style.display='block'
     try {
         const recipeApi = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipename}`);
         const data = await recipeApi.json();
-        
-        const containerOfRecipes = document.getElementById('containerOfRecipes');
+    
         containerOfRecipes.innerHTML = data.meals.map((meal) => {
             
             let ingredients = '';
@@ -209,15 +236,15 @@ const recipesdetails = async (recipename) => {
                         <p class="categorynameofrecipes"><span class="darkNames">CATEGORY:</span> ${meal.strCategory.toUpperCase()}</p>
                         <p class="sourceofrecipes"><span class="darkNames">Source:</span> <a href="${meal.strYoutube ? meal.strYoutube : 'N/A'}" target="_blank">${meal.strYoutube ? meal.strYoutube : 'N/A'}</a></p>
                         <p class="tagnameofrecipes"><span class="darkNames">Tags:</span><span class="colouredtext">${meal.strTags ? meal.strTags : 'N/A'}</span></p>
-                        <div>
+                        <div class="ingredientscontainer">
                             <p>Ingredients</p>
                             <ul>${ingredients}</ul>
                         </div>
                     </div>
                 </div>
-                <p>Measure</p>
-                <div><ul>${measures}</ul></div>
-                <div>
+                <p class="measuretext">Measure:</p>
+                <div class="measuresofrecipescontainer"><ul>${measures}</ul></div>
+                <div class="instructionscontainer">
                     <p>Instructions</p>
                     <ul>${instructions}</ul>
                 </div>
