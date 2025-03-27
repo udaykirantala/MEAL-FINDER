@@ -16,14 +16,16 @@ const slidercategoriesdata= async()=>{
 }
 slidercategoriesdata();
 
-function showSlider(){
-    const silder = document.querySelector('.header_heading_slider');
-    silder.style.display='flex';
+function showSlider() {
+    const slider = document.querySelector('.header_heading_slider');
+    slider.classList.add('show'); // Adds the 'show' class, triggering transition
 }
-function hiddenSlider(){
-    const silder = document.querySelector('.header_heading_slider');
-    silder.style.display='none';
+
+function hiddenSlider() {
+    const slider = document.querySelector('.header_heading_slider');
+    slider.classList.remove('show'); // Removes the 'show' class, triggering transition
 }
+
 
 // Slider Functionality Ending
 

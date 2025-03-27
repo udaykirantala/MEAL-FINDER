@@ -27,20 +27,26 @@ html, body {
     .header_home_heading span{
         padding-left: 10px;
     }
-    .header_heading_slider{
+    .header_heading_slider {
         background-color: white;
-        display: none;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        position: relative;
-        bottom:100%;
-        left: 77.8%;
+        position: fixed;
+        top: 0;
+        right: 0;
         width: 340px;
+        height: 100vh;
         z-index: 999;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        /* transition: right 10s ease-in-out; */
+        box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.2);
+        
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
     }
+    
+    .header_heading_slider.show {
+        opacity: 1;
+        visibility: visible;
+    }    
     .header_heading_slider i{
         padding-top: 20px;
         padding-left: 300px;
